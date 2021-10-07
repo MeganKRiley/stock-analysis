@@ -12,19 +12,24 @@
 When analyzing the stock performance it's clear that 2017 was a more successful year than 2018.  In 2017 only one company had a negative return, in 2018 on the other hand, ten companies had a negative return.  Now aside from that year just being more successful, what I found very interesting was how often one of the top five companies in one year were also part of the bottom five companies in the other year.  TERP, RUN, AY, DQ, JKS, and FSLR were all some of the highest performers one year, and the worst the next.  There's actually only two companies who stayed in the bottom five performers across both years and one that stayed in the top five.  With such drastic results from year to year I would highly recommend looking into a data set spanning across a more significant date range to fully understand which options are consistently the best bet.  With the data we are given I would suggest the client invest in ENPH as a primary company and SEDG or VSLR as secondary choices.  
 <img width="200" alt="All Stocks 2017 Chart" src="https://user-images.githubusercontent.com/90050622/135935580-3704c2ee-487a-4514-b5c9-c6137bd5af9e.PNG"><img width="200" alt="All Stocks 2018 Chart" src="https://user-images.githubusercontent.com/90050622/135935594-f78720e9-b785-402c-b04c-5fbe32ed523e.PNG">
 
-By adding additional variables to my refactored code, I was able to write short, simplifed *if* statements, such as the one below. 
+Utilizing an input box allowed me to only have to write and format the code for total daily volume and return once, as opposed to having to rewrite it for every single year that we wanted to look at the results of. This saved time, ensured accuracy, and made the macro accessible for future additions to the dataset.  
+
 ```
- If Cells(i - 1, 1).Value <> tickers(tickerindex) Then
-  tickerStartingPrices(tickerindex) = Cells(i, 6).Value
+yearValue = InputBox("What year would you like to run the analysis on?")
 ```
-    
+![Input Box](https://user-images.githubusercontent.com/90050622/136407926-5af42ac6-1c96-4292-b321-058076f6ce70.PNG)
 
 ## Summary
 
 ### Advantages and disadvantages or refactoring code
 While there are many advantages to refactoring code, one of the most prominent is the improved readability of the code.  Having easy to read code has many benefits.  As the code author, it is significantly easier to troubleshoot or debug problems if you have more efficient code in front of you.  This is also important if you plan to share your work out to others, who will need to interpret it as well.  Often times when refactoring has not taken place, code smell can be detected.  This could include bad patterns, duplicate code, or just unneccessarily long code.  Refactoring is a great way to improve the quality of the code into something more efficient and effective.  However, with that said, there are some disadvantages to refactoring code.  Refactoring code takes time, and with some projects more time is not an option.  Especially in a business environment, management often doesn't see a problem with clunky code as long as it works, so the concept of refactoring seems like a waste.  Refactoring code also opens the door to potential new bugs.  Just because you've written something that worked once doesn't mean that when you rewrite it it will run smoothly, in fact, it could end up causing more harm than good.  If a certain code lives in a workbook that you plan to use for a long time and add and modify to, refactoring is a great investment, however, if it's a one and done project, it might not be worth the extra work.  
 
-
+By adding additional variables to my refactored code, I was able to write short, simplifed *if* statements, such as the one below. 
+```
+ If Cells(i - 1, 1).Value <> tickers(tickerindex) Then
+  tickerStartingPrices(tickerindex) = Cells(i, 6).Value
+```
+    
 #### How these pros and cons aply to refactoring the original VBA script?
 I ran into a lot of issues with my original code in this VBA script.  It was so long, and there were so many moving parts, that when I would add additional steps, or try to debug a problem, I would actually end up with additional problems.  This code was greatly in need of some refactoring.  In it's original state it was long and redundant, and hard to keep track of.  This doesn't mean that refactoring was an easy solution, as I did still run into bugs that I had to correct.  Refactoring meant using more advanced VBA skills, some of which were new to me.  While the original code was much longer, it was written in much more basic code.  There was a clear advantage to refactoring the code in regards to run time.  While this wasn't a huge data set, you could still see very clearly that the refactored code ran faster than the original code.  This would be a crucial factor to keep in mind if you were working with a large dataset. 
 
